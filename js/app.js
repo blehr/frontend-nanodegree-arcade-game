@@ -23,9 +23,10 @@ Enemy.prototype.update = function(dt) {
         var enemyPosition = allEnemies.indexOf(this);
         allEnemies.splice(enemyPosition, 1);
         createEnemies();
-       
+
     }
     if (this.y === player.y && this.x + 70 > player.x && this.x < player.x + 70) {
+        removeImg();
         var heartImage = document.createElement("img");
         heartImage.style.cssText = 'position:absolute;top:415px;left:50%';
         heartImage.setAttribute("src", "images/Heart.png");
@@ -62,6 +63,7 @@ var Player = function() {
 Player.prototype.update = function(dt) {
     if (this.y == 0) {
         this.score += 1;
+        removeImg();
         var scoreImage = document.createElement("img");
         scoreImage.style.cssText = 'position:absolute;top:55px;left:50%';
         scoreImage.setAttribute("src", "images/Star.png");
@@ -71,7 +73,6 @@ Player.prototype.update = function(dt) {
         updateScore(this.score);
     }
 };
-
 
 
 Player.prototype.handleInput = function(input) {
@@ -119,7 +120,7 @@ function createEnemies() {
 
 function createFirstEnemies() {
     var count = 1;
-    while(count < 6){
+    while (count < 6) {
         createEnemies();
         count++;
     }
@@ -167,6 +168,15 @@ function resetScore() {
     player.gem = 0;
 }
 
+function removeImg() {
+    var img = document.querySelectorAll('.animated');
+    if (img) {
+        for (var i = 0; i < img.length; i++) {
+            img[i].parentNode.removeChild(img[i]);
+        }
+    }
+
+}
 
 
 // BLUE GEMS our player must avoid
@@ -180,7 +190,7 @@ var BlueGem = function() {
 
 
 BlueGem.prototype.update = function(dt) {
-    
+
     this.x += this.speed * dt;
     if (this.x > 500) {
         allGems.pop();
@@ -211,4 +221,3 @@ function createBlueGem() {
     allGems.push(new BlueGem());
 }
 createBlueGem();
-//TEST
