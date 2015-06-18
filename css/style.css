@@ -1,3 +1,35 @@
 body {
     text-align: center;
 }
+
+h1,h2,h3 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.score {
+    width: 101px;
+    height: 166px;
+    border: 1px solid #536BD5;
+    border-radius: 5px;
+    position: absolute;
+    top: 105px;
+    left: 125px;
+    color: #536BD5;
+}
+
+
+.past-score {
+    width: 101px;
+    height: 166px;
+    border: 1px solid #536BD5;
+    border-radius: 5px;
+    position: absolute;
+    top: 306px;
+    left: 125px;
+    color: #536BD5;
+}
+
+.header {
+   font-variant: small-caps;
+}
