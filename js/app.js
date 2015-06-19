@@ -28,8 +28,8 @@ Enemy.prototype.update = function(dt) {
     if (this.y === player.y && this.x + 70 > player.x && this.x < player.x + 70) {
         removeImg();
         var heartImage = document.createElement("img");
-        heartImage.style.cssText = 'position:absolute;top:415px;left:50%';
-        heartImage.setAttribute("src", "images/Heart.png");
+        heartImage.style.cssText = 'position:absolute;top:166px;left:50%';
+        heartImage.setAttribute("src", "images/death2.png");
         heartImage.classList.add('animated');
         heartImage.classList.add('bounceOutUp');
         document.querySelector('.header').appendChild(heartImage);
